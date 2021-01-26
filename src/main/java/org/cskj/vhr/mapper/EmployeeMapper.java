@@ -1,5 +1,6 @@
 package org.cskj.vhr.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -20,10 +21,13 @@ public interface EmployeeMapper {
 
 	int updateByPrimaryKey(Employee record);
 
-	List<Employee> getAllEmps(@Param("page") Integer page, @Param("size") Integer size,@Param("keyword") String keyword);
+	List<Employee> getAllEmps(@Param("page") Integer page, @Param("size") Integer size, @Param("emp") Employee emp,
+			@Param("beginDateScope") Date[] beginDateScope);
 
-	Long getTotal(String keyword);
+	Long getTotal(@Param("emp") Employee emp, @Param("beginDateScope") Date[] beginDateScope);
 
 	int getMaxWorkID();
+
+	int addEmps(@Param("list") List<Employee> list);
 
 }

@@ -17,7 +17,9 @@
 		<collection property="children" ofType="org.cskj.vhr.bean.Department" column="id" select="getDeptWithParentId"></collection>
 	</resultMap>
 	
-	
+	<select id="getAllDepts" resultMap="BaseResultMap">
+		select * from department
+	</select>
 	<select id="getDeptById" resultMap="deptAndChildren">
 		select * from department where id = #{parentId}
 	</select>

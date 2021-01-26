@@ -11,7 +11,7 @@ public class Employee {
 
 	private String gender;
 
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date birthday;
 
 	private String idCard;
@@ -43,7 +43,7 @@ public class Employee {
 	private String specialty;
 
 	private String school;
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date beginDate;
 
 	private String workState;
@@ -51,12 +51,12 @@ public class Employee {
 	private String workID;
 
 	private Double contractTerm;
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date conversionTime;
 	private Date notWorkDate;
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date beginContract;
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date endContract;
 
 	private Integer workAge;
@@ -329,6 +329,20 @@ public class Employee {
 
 	public void setPosition(Position position) {
 		this.position = position;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday + ", idCard="
+				+ idCard + ", wedlock=" + wedlock + ", nationId=" + nationId + ", nativePlace=" + nativePlace
+				+ ", politicId=" + politicId + ", email=" + email + ", phone=" + phone + ", address=" + address
+				+ ", departmentId=" + departmentId + ", jobLevelId=" + jobLevelId + ", posId=" + posId + ", engageForm="
+				+ engageForm + ", tiptopDegree=" + tiptopDegree + ", specialty=" + specialty + ", school=" + school
+				+ ", beginDate=" + beginDate + ", workState=" + workState + ", workID=" + workID + ", contractTerm="
+				+ contractTerm + ", conversionTime=" + conversionTime + ", notWorkDate=" + notWorkDate
+				+ ", beginContract=" + beginContract + ", endContract=" + endContract + ", workAge=" + workAge
+				+ ", department=" + department + ", jobLevel=" + jobLevel + ", nation=" + nation + ", politicsstatus="
+				+ politicsstatus + ", position=" + position + "]";
 	}
 
 }

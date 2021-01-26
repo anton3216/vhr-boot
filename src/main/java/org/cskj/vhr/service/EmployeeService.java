@@ -1,5 +1,6 @@
 package org.cskj.vhr.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.cskj.vhr.bean.Employee;
@@ -24,12 +25,14 @@ public class EmployeeService {
 	@Autowired
 	private NationMapper nationMapper;
 
-	public ResponsePageBean getAllEmps(Integer page, Integer size, String keyword) {
-		page = (page - 1) * size;
+	public ResponsePageBean getAllEmps(Integer page, Integer size, Employee emp, Date[] beginDateScope) {
+		if(page != null) {
+			page = (page - 1) * size;
+		}
 		// data 数据
-		List<Employee> list = employeeMapper.getAllEmps(page, size, keyword);
+		List<Employee> list = employeeMapper.getAllEmps(page, size, emp , beginDateScope);
 		// total 总条数 count
-		Long total = employeeMapper.getTotal(keyword);
+		Long total = employeeMapper.getTotal(emp,beginDateScope);
 		return new ResponsePageBean(total, list);
 	}
 
@@ -58,5 +61,8 @@ public class EmployeeService {
 		return employeeMapper.deleteByPrimaryKey(id);
 	}
 
+	public int addEmps(List<Employee> list) {
+		return employeeMapper.addEmps(list);
+	}
 
 }

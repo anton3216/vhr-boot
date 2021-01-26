@@ -1,58 +1,84 @@
 package org.cskj.vhr.bean;
 
 import java.util.Date;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class JobLevel {
-    private Integer id;
+	private Integer id;
 
-    private String name;
+	private String name;
 
-    private String titleLevel;
+	private String titleLevel;
 
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
-    private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+	private Date createDate;
 
-    private Boolean enabled;
+	private Boolean enabled;
 
-    public Integer getId() {
-        return id;
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		JobLevel jobLevel = (JobLevel) o;
+		return Objects.equals(name, jobLevel.name);
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	@Override
+	public int hashCode() {
 
-    public String getName() {
-        return name;
-    }
+		return Objects.hash(name);
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public JobLevel() {
 
-    public String getTitleLevel() {
-        return titleLevel;
-    }
+	}
 
-    public void setTitleLevel(String titleLevel) {
-        this.titleLevel = titleLevel == null ? null : titleLevel.trim();
-    }
+	public JobLevel(String name) {
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+		this.name = name;
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
+
+	public String getTitleLevel() {
+		return titleLevel;
+	}
+
+	public void setTitleLevel(String titleLevel) {
+		this.titleLevel = titleLevel == null ? null : titleLevel.trim();
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 }

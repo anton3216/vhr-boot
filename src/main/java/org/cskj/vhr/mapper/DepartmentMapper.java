@@ -20,4 +20,6 @@ public interface DepartmentMapper {
     List<Department> getDeptWithParentId(Integer parentId);
     
     Department getDeptById(Integer parentId);
+    
+    List<Department> getAllDepts();
 }

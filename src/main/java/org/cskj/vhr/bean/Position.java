@@ -1,6 +1,7 @@
 package org.cskj.vhr.bean;
 
 import java.util.Date;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -9,7 +10,32 @@ public class Position {
 
 	private String name;
 
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Position position = (Position) o;
+		return Objects.equals(name, position.name);
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(name);
+	}
+
+	public Position() {
+
+	}
+
+	public Position(String name) {
+
+		this.name = name;
+	}
+
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date createDate;
 
 	private Boolean enabled;
