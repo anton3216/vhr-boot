@@ -88,6 +88,6 @@
       type = #{type,jdbcType=INTEGER},
       hrid = #{hrid,jdbcType=INTEGER},
       state = #{state,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and 1 = 1
   </update>
 </mapper>
